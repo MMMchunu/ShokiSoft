@@ -1,0 +1,909 @@
+:root {
+  --bs-primary: #c2187a; /* Magenta */
+  --bs-secondary: #6cc24a; /* Green */
+  --bs-success: #6cc24a; /* Override default green */
+}
+/*** Product Section Styling ***/
+/*** Spinner Start ***/
+/*** Spinner ***/
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease-out,
+    visibility 0s linear 0.5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition:
+    opacity 0.5s ease-out,
+    visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+/*** Spinner End ***/
+
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  transition: 0.5s;
+  z-index: 99;
+}
+
+/*** Button Start ***/
+.btn {
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.btn-square {
+  width: 32px;
+  height: 32px;
+}
+
+.btn-sm-square {
+  width: 34px;
+  height: 34px;
+}
+
+.btn-md-square {
+  width: 44px;
+  height: 44px;
+}
+
+.btn-lg-square {
+  width: 56px;
+  height: 56px;
+}
+
+.btn-xl-square {
+  width: 66px;
+  height: 66px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-md-square,
+.btn-lg-square,
+.btn-xl-square {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+}
+
+.btn.btn-primary {
+  color: var(--bs-white);
+}
+
+.btn.btn-primary:hover {
+  background: var(--bs-secondary);
+  border: 1px solid var(--bs-secondary);
+}
+
+.btn.btn-secondary {
+  color: var(--bs-white);
+}
+
+.btn.btn-secondary:hover {
+  background: var(--bs-primary);
+  border: 1px solid var(--bs-primary);
+}
+/*** Topbar Start ***/
+
+/*** Navbar ***/
+.navbar-light .navbar-nav .nav-link {
+  position: relative;
+  margin-right: 25px;
+  padding: 35px 0;
+  color: var(--bs-dark);
+  font-size: 17px;
+  font-weight: 400;
+  outline: none;
+  transition: 0.5s;
+}
+
+.sticky-top.navbar-light .navbar-nav .nav-link {
+  padding: 20px 0;
+  color: var(--bs-dark);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--bs-primary);
+}
+
+.navbar-light .navbar-brand img {
+  max-height: 85px;
+  transition: 0.5s;
+}
+
+.sticky-top.navbar-light .navbar-brand img {
+  max-height: 60px;
+}
+
+.navbar .dropdown-toggle::after {
+  border: none;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.dropdown .dropdown-menu a:hover {
+  background: var(--bs-primary);
+  color: var(--bs-white);
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+  transform: rotateX(0deg);
+  visibility: visible;
+  background: var(--bs-light);
+  transition: 0.5s;
+  opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+  .sticky-top.navbar-light {
+    position: relative;
+    background: var(--bs-white);
+  }
+
+  .navbar.navbar-expand-lg .navbar-toggler {
+    padding: 10px 20px;
+    border: 1px solid var(--bs-primary);
+    color: var(--bs-primary);
+  }
+
+  .navbar-light .navbar-collapse {
+    margin-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .navbar-light .navbar-nav .nav-link,
+  .sticky-top.navbar-light .navbar-nav .nav-link {
+    padding: 10px 0;
+    margin-left: 0;
+    color: var(--bs-dark);
+  }
+
+  .navbar-light .navbar-brand img {
+    max-height: 60px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    visibility: hidden;
+    top: 100%;
+    transform: rotateX(-75deg);
+    transform-origin: 0% 0%;
+    border: 0;
+    border-radius: 10px;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .navbar-light {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var(--bs-white);
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 0;
+    z-index: 999;
+  }
+
+  .sticky-top.navbar-light {
+    position: fixed;
+    background: var(--bs-white);
+    border: none;
+  }
+
+  .navbar-light .navbar-nav .nav-item::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    bottom: -1px;
+    left: 50%;
+    background: var(--bs-primary);
+    transition: 0.5s;
+  }
+
+  .sticky-top.navbar-light .navbar-nav .nav-item::before {
+    bottom: 0;
+  }
+
+  .navbar-light .navbar-nav .nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid;
+    border-color: transparent transparent var(--bs-primary) transparent;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  .navbar-light .navbar-nav .nav-item:hover::after,
+  .navbar-light .navbar-nav .nav-item.active::after {
+    bottom: 1px;
+    opacity: 1;
+  }
+
+  .navbar-light .navbar-nav .nav-item:hover::before,
+  .navbar-light .navbar-nav .nav-item.active::before {
+    width: calc(100% - 2px);
+    left: 1px;
+  }
+
+  .navbar-light .navbar-nav .nav-link.nav-contact::before {
+    display: none;
+  }
+}
+/*** Carousel Hero Header Start ***/
+.carousel-header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide indicators */
+.carousel-indicators {
+  display: none;
+}
+
+/* Remove default control width */
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+  width: 0;
+}
+
+/* Custom navigation buttons */
+.carousel .carousel-control-prev .carousel-control-prev-icon,
+.carousel .carousel-control-next .carousel-control-next-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Brand color */
+  background: #c2187a;
+  transition: 0.4s ease;
+}
+
+/* Rounded styles */
+.carousel .carousel-control-prev .carousel-control-prev-icon {
+  left: 0;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.carousel .carousel-control-next .carousel-control-next-icon {
+  right: 0;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+/* Hover effect (brand green) */
+.carousel .carousel-control-prev .carousel-control-prev-icon:hover,
+.carousel .carousel-control-next .carousel-control-next-icon:hover {
+  background: #6cc24a;
+}
+
+/* Hero height scales with screen width (16:9-ish), within sensible limits */
+.carousel .carousel-inner .carousel-item {
+  position: relative;
+  min-height: clamp(560px, 52vw, 900px);
+}
+
+/* Heading scales with the screen so it never pushes the buttons out */
+.carousel-header h1.display-2 {
+  font-size: clamp(2.25rem, 4.2vw, 4.5rem);
+}
+
+/* Hero image fills the slide and crops instead of stretching */
+.carousel .carousel-inner .carousel-item img,
+.carousel .carousel-inner .carousel-item .hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Overlay: clear on the left so the product shows,
+   brand magenta on the right so the white text stays readable */
+.carousel .carousel-inner .carousel-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(194, 24, 122, 0) 0%,
+    rgba(194, 24, 122, 0.15) 40%,
+    rgba(194, 24, 122, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+/* Caption shared styles */
+.carousel-caption-1,
+.carousel-caption-2 {
+  /* In normal flow so the slide grows if the text needs more room */
+  position: relative;
+  z-index: 2;
+  min-height: clamp(560px, 52vw, 900px);
+  padding: 140px 0 60px;
+  display: flex;
+  align-items: center;
+}
+
+/* Right aligned (Slide 1) */
+.carousel-caption-1 {
+  justify-content: flex-end;
+}
+
+.carousel-caption-1-content {
+  text-align: right;
+  padding-right: 100px;
+  width: 52%;
+}
+
+.carousel-caption-1-content .carousel-caption-1-content-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Left aligned (Slide 2) */
+.carousel-caption-2 {
+  justify-content: flex-start;
+}
+
+.carousel-caption-2-content {
+  text-align: left;
+  padding-left: 100px;
+}
+
+.carousel-caption-2-content .carousel-caption-2-content-btn {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/*** Responsive Fixes ***/
+@media (max-width: 992px) {
+  .carousel .carousel-inner .carousel-item {
+    height: auto;
+    min-height: 560px;
+    margin-top: 0;
+  }
+
+  /* Shift the crop left so the product pack stays in view on narrow screens */
+  .carousel .carousel-inner .carousel-item img,
+  .carousel .carousel-inner .carousel-item .hero-img {
+    object-position: 25% center;
+  }
+
+  /* Text sits over the product here, so use an even, stronger overlay */
+  .carousel .carousel-inner .carousel-item::before {
+    background: linear-gradient(
+      rgba(194, 24, 122, 0.65),
+      rgba(108, 194, 74, 0.55)
+    );
+  }
+
+  /* Nav isn't overlaid on mobile, so drop the desktop top padding
+     and let the caption set the slide height */
+  .carousel-caption-1,
+  .carousel-caption-2 {
+    position: relative;
+    inset: auto;
+    min-height: 560px;
+    padding: 60px 0;
+  }
+
+  /* Center all content on mobile */
+  .carousel-caption-1,
+  .carousel-caption-2 {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .carousel-caption-1-content,
+  .carousel-caption-2-content {
+    width: 100%;
+    min-width: 0;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  /* Let the buttons stack instead of pushing the hero wider than the screen */
+  .carousel-caption-1-content .carousel-caption-1-content-btn,
+  .carousel-caption-2-content .carousel-caption-2-content-btn {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .carousel-caption-1-content-btn .btn,
+  .carousel-caption-2-content-btn .btn {
+    margin: 0 !important;
+  }
+
+  /* Hide arrows on mobile */
+  .carousel .carousel-control-prev .carousel-control-prev-icon,
+  .carousel .carousel-control-next .carousel-control-next-icon {
+    display: none;
+  }
+}
+
+/* Modal styling */
+.modal .modal-header {
+  height: 100px;
+}
+
+#searchModal .modal-content {
+  background: rgba(255, 255, 255, 0.6);
+}
+/*** Carousel Hero Header End ***/
+
+/*** Single Page Hero Header Start ***/
+.bg-breadcrumb {
+  position: relative;
+  overflow: hidden;
+
+  /* Neutral dark overlay: keeps the photo's true colours, white text readable */
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5)),
+    url(../img/inner-pages-hero.webp);
+
+  /* Keep the toilet rolls (right side of the image) in view when cropped */
+  background-position: 75% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 170px 0 90px 0;
+  transition: 0.5s;
+}
+
+/* Breadcrumb positioning */
+.bg-breadcrumb .breadcrumb {
+  position: relative;
+}
+
+/* Breadcrumb links */
+.bg-breadcrumb .breadcrumb .breadcrumb-item a {
+  color: #ffffff;
+}
+
+/* Active breadcrumb */
+.bg-breadcrumb .breadcrumb .breadcrumb-item.active {
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* Heading text */
+.bg-breadcrumb h4 {
+  color: #ffffff;
+}
+
+/* Mobile spacing */
+@media (max-width: 992px) {
+  .bg-breadcrumb {
+    padding: 60px 0;
+  }
+}
+/*** Single Page Hero Header End ***/
+
+/*** About Start ***/
+.about .about-img {
+  position: relative;
+  padding-bottom: 30px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.about .about-img::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  top: -30px;
+  right: 0;
+  border-radius: 10px;
+  background: var(--bs-secondary);
+}
+
+.about .about-img::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  left: -30px;
+  bottom: 30px;
+  border-radius: 10px;
+  background: var(--bs-secondary);
+}
+
+.about .about-img .about-exp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  background: var(--bs-secondary);
+  color: var(--bs-white);
+  border: 1px solid var(--bs-secondary);
+  margin-top: -30px;
+  margin-left: -30px;
+  border-radius: 10px;
+}
+/*** About End ***/
+
+/*** Service Start ***/
+.service-item {
+  position: relative;
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+}
+
+.service-item::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: var(--bs-primary);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.service-item:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+.service-item:hover .service-content,
+.service-item:hover .service-btn {
+  position: relative;
+  z-index: 2;
+}
+
+.service-item .service-content a,
+.service-item .service-content p {
+  transition: 0.5s;
+}
+
+.service-item:hover .service-content a:hover {
+  color: var(--bs-secondary);
+}
+
+.service-item:hover .service-content p {
+  color: var(--bs-white);
+}
+
+.service-item .service-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bs-primary);
+  transition: 0.5s;
+}
+
+.service-item .service-btn i {
+  transition: 0.5s;
+}
+
+.service-item:hover .service-btn {
+  background: var(--bs-white);
+}
+
+.service-item:hover .service-btn i {
+  transform: rotate(360deg);
+  color: var(--bs-primary) !important;
+}
+/*** Service End ***/
+
+/*** Products Start ***/
+.product .product-item {
+  border: 1px solid rgba(196, 211, 211, 0.9);
+  border-radius: 10px;
+}
+
+/*** Products End ***/
+
+/*** Blog Start ***/
+.blog .blog-item {
+  border-radius: 10px;
+  background: var(--bs-white);
+  transition: 0.5s;
+}
+
+.blog .blog-item:hover {
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
+}
+
+.blog .blog-item .blog-img {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.blog .blog-item .blog-img::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.blog .blog-item .blog-img img {
+  transition: 0.5s;
+}
+
+.blog .blog-item:hover .blog-img img {
+  transform: scale(1.2);
+}
+
+.blog .blog-item:hover .blog-img::after {
+  background: rgba(0, 209, 249, 0.2);
+}
+
+.blog .blog-item .blog-date {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  border-radius: 10px;
+  background: var(--bs-primary);
+  color: var(--bs-white);
+  z-index: 2;
+}
+
+.blog .blog-item .blog-content a {
+  transition: 0.5s;
+}
+
+.blog .blog-item:hover .blog-content a:hover {
+  color: var(--bs-primary) !important;
+}
+/*** Blog End ***/
+
+/*** Footer Start ***/
+.footer {
+  background: var(--bs-dark);
+  color: var(--bs-light);
+}
+
+/* Links */
+.footer .footer-item a {
+  line-height: 35px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+/* Paragraphs */
+.footer .footer-item p {
+  line-height: 35px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Hover effect (brand primary) */
+.footer .footer-item a:hover {
+  letter-spacing: 0.5px;
+  color: var(--bs-primary);
+}
+
+/* Social buttons */
+.footer .btn-secondary {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+/* Social hover → switch to primary */
+.footer .btn-secondary:hover {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+
+/* Input fields */
+.footer input.form-control {
+  border: none;
+  box-shadow: none;
+}
+
+/* Input focus uses brand */
+.footer input.form-control:focus {
+  border: 1px solid var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(194, 24, 122, 0.25);
+}
+
+/* Buttons inside inputs */
+.footer .position-relative .btn {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+
+/* Button hover */
+.footer .position-relative .btn:hover {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+/* Headings */
+.footer h3,
+.footer h4 {
+  color: var(--bs-white);
+}
+
+/*** Footer End ***/
+
+/*** Copyright Start ***/
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bs-dark);
+}
+
+/* Links in copyright */
+.copyright a {
+  color: var(--bs-white);
+  transition: 0.3s;
+}
+
+.copyright a:hover {
+  color: var(--bs-primary);
+}
+/*** Copyright End ***/
+
+.footer a:hover {
+  color: #0d6efd !important;
+  text-decoration: none;
+}
+
+.btn-sm-square {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-item img {
+  height: 250px; /* SAME height for all images */
+  width: 100%;
+  object-fit: cover; /* Keeps image nice without stretching */
+}
+
+:root {
+  --bs-primary: #c2187a; /* Magenta */
+  --bs-secondary: #6cc24a; /* Green */
+  --bs-success: #6cc24a; /* Override default green */
+}
+/*** Product Section Styling ***/
+
+.product-item {
+  transition: 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect */
+.product-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Product titles */
+.product-item h5 {
+  color: var(--bs-dark);
+}
+
+/* Price uses primary (brand magenta) */
+.product-item h4 {
+  color: var(--bs-primary);
+}
+
+/* Buttons use brand green */
+.product-item .btn-success {
+  background-color: var(--bs-success);
+  border-color: var(--bs-success);
+}
+
+/* Button hover switches to primary */
+.product-item .btn-success:hover {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+/* Badge styling */
+.product-item .badge {
+  background-color: var(--bs-secondary);
+  color: #fff;
+}
+
+/* Input focus styling */
+.product-item input:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(194, 24, 122, 0.25);
+}
+
+.accordion-button {
+  font-size: 16px;
+  border-radius: 8px !important;
+}
+
+.accordion-item {
+  border: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #6cc24a;
+  color: #fff;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-body {
+  font-size: 15px;
+  color: #555;
+}
+
+/* Footer logo: remove inherited link line-height/hover spacing around the image */
+.footer .footer-item a.footer-logo,
+.footer .footer-item a.footer-logo:hover {
+  line-height: 0;
+  letter-spacing: 0;
+}
+
+/* All footer + copyright text in solid white (#fff) on the green background.
+   !important is needed to beat Bootstrap's .text-muted / .text-body utilities.
+   Form inputs are excluded because they sit on a white field. */
+.footer,
+.footer p,
+.footer a,
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6,
+.footer i,
+.footer .footer-item a,
+.footer .footer-item p,
+.footer .text-muted,
+.footer .text-body,
+.copyright,
+.copyright span,
+.copyright a,
+.copyright i,
+.copyright .text-body,
+.copyright .text-muted {
+  color: #fff !important;
+}
